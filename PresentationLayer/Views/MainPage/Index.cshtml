@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_userLayout.cshtml";
+}
+
+@await Component.InvokeAsync("MainSliderView")
+@await Component.InvokeAsync("CategoryView")
+@await Component.InvokeAsync("ProductView")
+
