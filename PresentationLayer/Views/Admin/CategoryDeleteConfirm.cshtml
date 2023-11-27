@@ -1,0 +1,18 @@
+﻿@model Category
+
+@{
+    ViewData["Title"] = "CategoryDeleteConfirm";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<div>
+    <p>
+        <div>@Model.CategoryName isimli kategoriyi silmek istediğinizden emin misiniz?</div>
+        <br />
+        <form action="" method="post">
+            <input type="hidden" asp-for="@Model.CategoryId" />
+            <button type="submit" class="btn btn-danger">Evet</button>
+            <a href="/Admin/CategoryList" class="btn btn-primary">Hayır</a>
+        </form>
+    </p>
+</div>
