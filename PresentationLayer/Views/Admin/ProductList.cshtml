@@ -1,0 +1,43 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "ProductList";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+
+
+<div class="container">
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th style="width:30px"></th>
+                <th style="width:100px">Resim</th>
+                <th style="width:100px">Ürün Adı</th>
+                <th style="width:100px">Kategori</th>
+                <th style="width:70px">Durumu</th>
+                <th style="width:160px">Düzenle</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ProductId</td>
+                    <td><img src="/img/@item.ProductImage" object-fit="cover" height="80" width="80" /></td>
+                    <td>@item.ProductName</td>
+                    <td>@item.Category.CategoryName</td>
+                    <td>@item.ProductIsActive</td>
+                    <td>
+                        <a href="/Admin/UpdateProduct/@item.ProductId" class="btn btn-success">Düzenle</a>
+                        <a href="/Admin/DeleteProduct/@item.ProductId" class="btn btn-danger px-4">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/Admin/AddProduct/" class="btn btn-primary">Yeni Ürün Girişi</a>
+</div>
+
+
+
+

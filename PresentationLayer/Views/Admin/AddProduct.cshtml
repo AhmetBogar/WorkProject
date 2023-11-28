@@ -1,0 +1,44 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "AddProduct";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+
+
+<div class="mt-5">
+    <div class="container">
+
+        <h3 class="d-inline-block position-relative text-body text-uppercase pb-4">Yeni Kategori Girişi</h3>
+        <br />
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="All"></div>
+            <label>Ürün Adı</label>
+            <input type="text" asp-for="ProductName" class="form-control" style="border:1px solid #2222" />
+            <br />
+
+            <label>Ürün Açıklaması</label>
+            <input type="text" asp-for="ProductDescription" class="form-control" style="border:1px solid #2222" />
+            <br />
+
+            <label>Ürün Resmi</label>
+            <div class="input-group mb-3">
+                <input type="file" name="imageFile" id="imageFile" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>Ürün Kategorisi</label>
+                <select asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-control">
+                    <option selected disabled>Seçiniz</option>                 
+                </select>
+            </div>
+
+            <button class="btn btn-primary">Ürünü Kaydet</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,13 @@ namespace EntityLayer.Concrete
     public class Product
     {
         public int ProductId { get; set; }
+        [Required(ErrorMessage ="Ürün adını giriniz.")]
         public string? ProductName { get; set; }
         public string? ProductDescription { get; set; }
         public string? ProductImage { get; set; }
         public bool ProductIsActive { get; set; }
 
+        
         public int CategoryId { get; set; }
         public Category? Category { get; set; } 
     }
