@@ -4,6 +4,7 @@ using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
 
 namespace PresentationLayer.Controllers
 {
@@ -40,13 +41,13 @@ namespace PresentationLayer.Controllers
         [HttpPost]
         public async Task<IActionResult> AddCategory(Category category, IFormFile imageFile)
         {
-            var allowedExtensions = new[] { ".jpg", ".jpeg", "png" };
-            var extension = Path.GetExtension(imageFile.FileName);
-            var randomFileName = string.Format($"{Guid.NewGuid().ToString()}{extension}");
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", randomFileName);
 
-            if(imageFile != null)
+            var extension = "";
+
+            if (imageFile != null)
             {
+                var allowedExtensions = new[] { ".jpg", ".jpeg", "png" };
+                extension = Path.GetExtension(imageFile.FileName);
                 if (!allowedExtensions.Contains(extension))
                 {
                     ModelState.AddModelError("", "Geçerli bir resim türü seçiniz.");
@@ -55,13 +56,19 @@ namespace PresentationLayer.Controllers
 
             if (ModelState.IsValid)
             {
-                using(var stream=new FileStream(path, FileMode.Create))
+                if (imageFile != null)
                 {
-                    await imageFile.CopyToAsync(stream);
+                    var randomFileName = string.Format($"{Guid.NewGuid().ToString()}{extension}");
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", randomFileName);
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        await imageFile.CopyToAsync(stream);
+                    }
+                    category.CategoryImage = randomFileName;
+                    _categoryService.TInsert(category);
+                    return RedirectToAction("CategoryList");
                 }
-                category.CategoryImage = randomFileName;
-                _categoryService.TInsert(category);
-                return RedirectToAction("CategoryList");
+
             }
             return View(category);
         }
@@ -75,8 +82,24 @@ namespace PresentationLayer.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdateCategory(Category category)
+        public async Task<IActionResult> UpdateCategory(Category category, IFormFile? imageFile)
         {
+            if (ModelState.IsValid)
+            {
+                if (imageFile != null)
+                {
+                    var extension = Path.GetExtension(imageFile.FileName);
+                    var randomFileName = string.Format($"{Guid.NewGuid().ToString()}{extension}");
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", randomFileName);
+
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        await imageFile.CopyToAsync(stream);
+                    }
+                    category.CategoryImage = randomFileName;
+                }
+            }
+
             _categoryService.TUpdate(category);
             return RedirectToAction("CategoryList");
         }

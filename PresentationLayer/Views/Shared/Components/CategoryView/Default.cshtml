@@ -8,12 +8,12 @@
                 <h3 class="title-w3l mb-3">Kategoriler</h3>
             </div>
 
-        <div class="witemshny-grids row">
+        <div class="witemshny-grids row mx-auto align-items-center">
             @foreach (var item in Model)
             {
                 <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
                     <div class="weitemshny-grid oposition-relative">
-                        <a href="#img" class="d-block zoom"><img src="@item.CategoryImage" alt="" class="img-fluid news-image"></a>
+                        <a href="#img" class="d-block zoom" width="80" height="80"><img src="/img/@item.CategoryImage" alt="" class="img-fluid news-image"></a>
                         <div class="witemshny-inf">
                         </div>
                     </div>
