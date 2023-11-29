@@ -166,8 +166,9 @@ namespace PresentationLayer.Controllers
                     _productService.TInsert(product);
                     return RedirectToAction("ProductList");
                 }
-
+                
             }
+            ViewBag.Categories = new SelectList(_context.Categories, "CategoryId", "CategoryName");
             return View(product);
         }
 
@@ -199,6 +200,21 @@ namespace PresentationLayer.Controllers
             }
 
             _productService.TUpdate(product);
+            return RedirectToAction("ProductList");
+        }
+
+        [HttpGet]
+        public IActionResult DeleteProduct(int id)
+        {
+            var values = _productService.TGetById(id);
+            return View("ProductDeleteConfirm", values);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteProduct(int id, int ProductId)
+        {
+            var values = _productService.TGetById(id);
+            _productService.TDelete(values);
             return RedirectToAction("ProductList");
         }
     }

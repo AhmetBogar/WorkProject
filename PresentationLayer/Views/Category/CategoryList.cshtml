@@ -1,0 +1,41 @@
+﻿@model List<Category>
+
+@{
+    ViewData["Title"] = "CategoryList";
+    Layout = "~/Views/Shared/_userLayout.cshtml";
+}
+
+
+<section class="locations-1" id="locations">
+    <div class="locations py-5">
+        <div class="container py-lg-5 py-md-4 py-2">
+            <div class="heading text-center mx-auto">
+                <h3 class="title-w3l mb-3">Kategoriler</h3>
+            </div>
+            <div class="row pt-md-5 pt-4">
+
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-6 mt-lg-0 pt-lg-0 mt-4 pt-md-2">
+                        <div class="w3property-grid">
+                            <a href="/Category/CategoryProducts/@item.CategoryId">
+                                <div class="box16">
+                                    <div class=""><span></span><span></span></div>
+                                    <img class="img-fluid" src="/img/@item.CategoryImage" alt="">
+                                    <div class="box-content">
+                                        <h3 class="title">@item.CategoryName</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                }
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+

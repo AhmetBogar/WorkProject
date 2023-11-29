@@ -1,0 +1,18 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "ProductDeleteConfirm";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<div>
+    <p>
+        <div>@Model.ProductName isimli ürünü silmek istediğinizden emin misiniz?</div>
+        <br />
+        <form action="" method="post">
+            <input type="hidden" asp-for="@Model.ProductId" />
+            <button type="submit" class="btn btn-danger">Evet</button>
+            <a href="/Admin/ProductList" class="btn btn-primary">Hayır</a>
+        </form>
+    </p>
+</div>

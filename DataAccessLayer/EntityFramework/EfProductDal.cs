@@ -18,5 +18,17 @@ namespace DataAccessLayer.EntityFramework
             var c = new Context();
             return c.Products.Include(p => p.Category).ToList();
         }
+
+        public List<Product> GetProductsWithCategoryID(int id)
+        {
+            var c=new Context();
+            return c.Products.Include(p=>p.CategoryId==id).ToList();
+        }
+
+        public Product GetProductWithId(int id)
+        {
+            var c=new Context();
+            return c.Products.Include(p => p.Category).Where(p => p.ProductId == id).FirstOrDefault();
+        }
     }
 }

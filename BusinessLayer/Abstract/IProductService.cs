@@ -10,5 +10,7 @@ namespace BusinessLayer.Abstract
     public interface IProductService:IGenericService<Product>
     {
         List<Product> GetProductsWithCategory();
+        List<Product> GetProductWithCategoryID(int id);
+        Product GetProductById(int id);
     }
 }

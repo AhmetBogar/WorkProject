@@ -18,9 +18,19 @@ namespace BusinessLayer.Concrete
             _productDal = productDal;
         }
 
+        public Product GetProductById(int id)
+        {
+            return _productDal.GetProductWithId(id);
+        }
+
         public List<Product> GetProductsWithCategory()
         {
             return _productDal.GetProductsWithCategory();
+        }
+
+        public List<Product> GetProductWithCategoryID(int id)
+        {
+            return _productDal.GetProductsWithCategoryID(id);
         }
 
         public void TDelete(Product t)

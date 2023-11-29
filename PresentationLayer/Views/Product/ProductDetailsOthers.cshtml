@@ -1,0 +1,136 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "ProductDetails";
+    Layout = "~/Views/Shared/_userLayout.cshtml";
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+
+
+<body>
+    <!--/Header-->
+    <!--//Header-->
+    <!--/inner-page-->
+    <!--//inner-page-->
+    <!--/w3l-index3-->
+    <!--//w3l-index3-->
+    <!--/w3-grids-->
+    <!--//w3-grids-->
+    <!--/progress-->
+    <!--//progress-->
+    <!--/faq-section-->
+    <!-- //faq-section -->
+    <!--/w3-grids-->
+    <!--//w3-grids-->
+    <!--/w3l-subscribe-content-->
+    <!--//w3l-subscribe-content-->
+    <!--/team-sec-->
+    <section class="w3l-team-main team py-5" id="team">
+        <div class="container py-lg-5">
+            <div class="title-content text-center mb-2">
+                <h6 class="title-subw3hny mb-1">Our Team</h6>
+                <h3 class="title-w3l">Who Worked With Us.</h3>
+            </div>
+            <div class="row team-row justify-content-center">
+                <div class="col-lg-4 col-6 team-wrap mt-lg-5 mt-4">
+                    <div class="team-member text-center">
+                        <div class="team-img">
+                            <img src="~/theme2/assets/images/team1.jpg" alt="" class="radius-image">
+                            <div class="overlay-team">
+                                <div class="team-details text-center">
+                                    <div class="socials mt-20">
+                                        <a href="#url">
+                                            <span class="fab fa-facebook-f"></span>
+                                        </a>
+                                        <a href="#url">
+                                            <span class="fab fa-twitter"></span>
+                                        </a>
+                                        <a href="#url">
+                                            <span class="fab fa-linkedin-in"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#url" class="team-title">Lawrence Petrie</a>
+                        <p>Selling Agent</p>
+                    </div>
+                </div>
+                <!-- end team member -->
+                <!-- end team member -->
+                <!-- end team member -->
+            </div>
+
+        </div>
+    </section>
+    <!--//team-sec-->
+    <!--/footer-9-->
+    <!--//footer-9 -->
+    <!-- Template JavaScript -->
+    <script src="~/theme2/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/theme-change.js"></script>
+    <!--/search-->
+    <script src="~/theme2/assets/js/modernizr.custom.js"></script>
+    <script src="~/theme2/assets/js/classie.js"></script>
+    <script src="~/theme2/assets/js/demo1.js"></script>
+    <!--//search-->
+    <!--/stats-number-counter-->
+    <script src="~/theme2/assets/js/jquery.waypoints.min.js"></script>
+    <script src="~/theme2/assets/js/jquery.countup.js"></script>
+    <script>
+        $('.counter').countUp();
+
+    </script>
+    <!--//stats-number-counter-->
+    <!-- MENU-JS -->
+    <script>
+        $(window).on("scroll", function () {
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 80) {
+                $("#site-header").addClass("nav-fixed");
+            } else {
+                $("#site-header").removeClass("nav-fixed");
+            }
+        });
+
+        //Main navigation Active Class Add Remove
+        $(".navbar-toggler").on("click", function () {
+            $("header").toggleClass("active");
+        });
+        $(document).on("ready", function () {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+            $(window).on("resize", function () {
+                if ($(window).width() > 991) {
+                    $("header").removeClass("active");
+                }
+            });
+        });
+
+    </script>
+    <!-- //MENU-JS -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+        $(function () {
+            $('.navbar-toggler').click(function () {
+                $('body').toggleClass('noscroll');
+            })
+        });
+
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
+    <!-- //bootstrap -->
+    <script src="~/theme2/assets/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
+
+
