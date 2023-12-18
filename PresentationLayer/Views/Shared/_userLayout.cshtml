@@ -30,13 +30,19 @@ Author URL: http://w3layouts.com
                     <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
                     <span class="navbar-toggler-icon fa icon-close fa-times"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarScroll">
+                <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-lg-auto my-2 my-lg-0 navbar-nav-scroll">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/MainPage/Index">Ana Sayfa</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Category/CategoryList">Kategoriler</a>
+                        <li class="nav-item dropdown @@pages__active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                pages
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="services.html">Services</a>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="~/theme2/services.html">Services</a>

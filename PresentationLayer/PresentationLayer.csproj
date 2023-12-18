@@ -30,4 +30,12 @@
     <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\website-menu-08\.DS_Store" />
+    <None Include="wwwroot\website-menu-08\css\.DS_Store" />
+    <None Include="wwwroot\website-menu-08\fonts\.DS_Store" />
+    <None Include="wwwroot\website-menu-08\images\.DS_Store" />
+    <None Include="wwwroot\website-menu-08\scss\.DS_Store" />
+  </ItemGroup>
+
 </Project>
