@@ -28,9 +28,6 @@ namespace PresentationLayer.Controllers
             var values = _productService.GetProductWithCategoryID(id);
             return View(values);
         }
-        public  IActionResult Test()
-        {
-            return View();
-        }
+
     }
 }
